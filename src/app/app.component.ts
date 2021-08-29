@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,25 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ngrx';
+  public counter = 0;
+  public updatedAt?: number;
+
+  get cannotDecrease(): boolean {
+    return this.counter <= 0;
+  }
+
+  increase(): void {
+    this.updatedAt = Date.now();
+    this.counter++;
+  }
+
+  decrease(): void {
+    this.updatedAt = Date.now();
+    this.counter--;
+  }
+
+  clear(): void {
+    this.updatedAt = Date.now();
+    this.counter = 0;
+  }
 }
